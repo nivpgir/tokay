@@ -1337,7 +1337,7 @@ pub fn print(ast: &RefValue) {
             }
 
             if let Some(value) = value {
-                print!(" {:?}", value.borrow());
+                print!(" :: {:?}", value.borrow());
             }
             print!("\n");
 
@@ -1345,11 +1345,13 @@ pub fn print(ast: &RefValue) {
                 print(children, indent + 1);
             }
         } else if let Some(l) = value.list() {
+	    print!("{:indent$}List(\n", "", indent = indent);
             for item in l.iter() {
-                print(item, indent);
+                print(item, indent+1);
             }
+	    print!("{:indent$})\n", "", indent = indent);
         } else {
-            print!("{}", value.repr());
+            print!("{:indent$}{}\n", "", value.repr(), indent = indent);
         }
     }
 
