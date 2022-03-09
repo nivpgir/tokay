@@ -83,6 +83,11 @@ impl Dict {
         Ok(dict)
     });
 
+    tokay_method!("dict_len(dict)", {
+	let inner_dict = dict.borrow();
+	Ok(inner_dict.list().ok_or("unreachable?".to_string())?.len().into())
+    });
+
     /*
     fn get_index(&self, index: &Value) -> Result<RefValue, String> {
         let index = index.to_string();

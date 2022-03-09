@@ -66,6 +66,10 @@ impl Str {
     tokay_method!("str_upper(str)", {
         Ok(RefValue::from(str.to_string().to_uppercase()))
     });
+
+    tokay_method!("str_len(str)", {
+        Ok(RefValue::from(str.to_string().len()))
+    });
 }
 
 impl std::fmt::Debug for Str {

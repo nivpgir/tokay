@@ -5,7 +5,7 @@ DON'T CHANGE THIS FILE MANUALLY, IT WILL GO AWAY!!!
 */
 use crate::builtin::Builtin;
 
-pub static BUILTINS: [Builtin; 17] = [
+pub static BUILTINS: [Builtin; 20] = [
     Builtin {
         name: "Identifier",
         func: crate::value::token::tokay_token_identifier,
@@ -35,6 +35,10 @@ pub static BUILTINS: [Builtin; 17] = [
         func: crate::value::dict::Dict::tokay_method_dict_new,
     },
     Builtin {
+        name: "dict_len",
+        func: crate::value::dict::Dict::tokay_method_dict_len,
+    },
+    Builtin {
         name: "dict_update",
         func: crate::value::dict::Dict::tokay_method_dict_update,
     },
@@ -45,6 +49,10 @@ pub static BUILTINS: [Builtin; 17] = [
     Builtin {
         name: "list",
         func: crate::value::list::List::tokay_method_list_new,
+    },
+    Builtin {
+        name: "list_len",
+        func: crate::value::list::List::tokay_method_list_len,
     },
     Builtin {
         name: "list_push",
@@ -61,6 +69,10 @@ pub static BUILTINS: [Builtin; 17] = [
     Builtin {
         name: "str_join",
         func: crate::value::str::Str::tokay_method_str_join,
+    },
+    Builtin {
+        name: "str_len",
+        func: crate::value::str::Str::tokay_method_str_len,
     },
     Builtin {
         name: "str_lower",

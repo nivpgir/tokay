@@ -42,6 +42,11 @@ impl List {
         Ok(list)
     });
 
+    tokay_method!("list_len(list)", {
+	let inner_list = &*list.borrow();
+	Ok(inner_list.list().ok_or("unreachable?".to_string())?.len().into())
+    });
+
     pub fn repr(&self) -> String {
         let mut ret = "(".to_string();
         for item in self.iter() {
